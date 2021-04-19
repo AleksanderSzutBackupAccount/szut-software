@@ -1,13 +1,34 @@
 <template>
   <div class="app-social-links">
-    <a href="" class="app-social-links__link app-social-links__link--fb">
-      <img src="@/assets/facebook.svg" alt="Go to our facebook" />
+    <a
+      href="https://www.facebook.com/szutsoftware"
+      class="app-social-links__link app-social-links__link--fb"
+    >
+      <img
+        src="@/assets/facebook.svg"
+        height="35"
+        alt="Przejdź do naszego facebook'a"
+      />
     </a>
-    <a href="" class="app-social-links__link app-social-links__link--fb">
-      <img src="@/assets/whatsapp.svg" alt="Go to our whatsapp" />
+    <a
+      href="wa.link/w9xqu4"
+      class="app-social-links__link app-social-links__link--fb"
+    >
+      <img
+        src="@/assets/whatsapp.svg"
+        height="35"
+        alt="Przejdź do naszego whatsapp"
+      />
     </a>
-    <a href="" class="app-social-links__link app-social-links__link--fb">
-      <img src="@/assets/instagram-sketched.svg" alt="Go to our instagram" />
+    <a
+      href="https://www.instagram.com/szut_software/"
+      class="app-social-links__link app-social-links__link--fb"
+    >
+      <img
+        src="@/assets/instagram-sketched.svg"
+        height="35"
+        alt="Przejdź do naszego instagram"
+      />
     </a>
   </div>
 </template>
