@@ -55,13 +55,13 @@ export default {
     height: 160px;
     z-index: -1;
     transform: rotate(-45deg);
-    border: 10px solid #c9c9c996;
+    border: 10px solid rgba(0, 0, 0, 0.05);
 
     transition: all ease-in-out 0.5s;
     @media (min-width: 340px) {
       width: 230px;
       height: 230px;
-      border: 12px solid #c9c9c996;
+      border: 12px solid rgba(0, 0, 0, 0.05);
     }
   }
 }
