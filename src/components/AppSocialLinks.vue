@@ -23,6 +23,7 @@ export default {
   display: grid;
   grid-column-gap: 32px;
   grid-row-gap: 16px;
+  justify-items: center;
 
   @media (min-width: 420px) {
     grid-template-columns: 1fr 1fr 1fr;
