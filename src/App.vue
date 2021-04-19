@@ -1,7 +1,5 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-  </div>
+  <app-header/>
   <router-view />
 </template>
 
@@ -13,5 +11,10 @@
   text-align: center;
   color: #2c3e50;
 }
-
 </style>
+<script>
+import AppHeader from "@/components/AppHeader";
+export default {
+  components: { AppHeader }
+}
+</script>
