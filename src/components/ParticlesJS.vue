@@ -10,9 +10,9 @@ export default {
   data() {
     return {
       id: _.uniqueId("particles_"),
+      height: 0,
     };
   },
-
   props: {
     shapeTypeString: {
       type: String,
@@ -57,7 +57,7 @@ export default {
               "width": 0,
               "color": "#fc4445"
             },
-            "polygon": particle,
+            "polygon": particle
           },
           "opacity": {
             "value": 0.2367442924896818,
@@ -141,15 +141,22 @@ export default {
           }
         },
         "retina_detect": true
-      })
+      });
     }
   }
 
-}
+};
 </script>
 
-<style>
+<style lang="scss">
 .particles {
-  pointer-events: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top:0;
+  z-index: -100;
+  canvas {
+  }
 }
 </style>
