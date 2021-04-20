@@ -2,7 +2,7 @@
   <header class="header">
     <h1 class="header__header">Szut software</h1>
     <h2 class="header__text">
-      Tworzymy strony internetowe stworzone specjalnie pod&nbsp;twoją firme
+      Tworzymy strony internetowe specjalnie pod&nbsp;twoją firmę
     </h2>
   </header>
 </template>
