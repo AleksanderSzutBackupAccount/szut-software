@@ -1,17 +1,25 @@
-<template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-  </div>
+<template class="app">
+  <app-header />
   <router-view />
+  <particles-j-s />
+  <particles-j-s shape-type-string="circle" />
 </template>
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  padding: 20px;
+  overflow: hidden;
+  color: #111;
 }
-
 </style>
+<script>
+import AppHeader from "@/components/AppHeader";
+import ParticlesJS from "@/components/ParticlesJS";
+
+export default {
+  components: { ParticlesJS, AppHeader },
+};
+</script>
