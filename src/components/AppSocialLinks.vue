@@ -11,7 +11,7 @@
       />
     </a>
     <a
-      href="wa.link/w9xqu4"
+      href="https://wa.link/w9xqu4"
       class="app-social-links__link app-social-links__link--fb"
     >
       <img
