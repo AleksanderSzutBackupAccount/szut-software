@@ -3,6 +3,7 @@
         <a
             href="https://www.facebook.com/szutsoftware"
             class="app-social-links__link app-social-links__link--fb"
+            target="_blank"
         >
             <img
                 src="@/assets/facebook.svg"
@@ -13,6 +14,7 @@
         <a
             href="https://telegram.me/a_szut"
             class="app-social-links__link app-social-links__link--fb"
+            target="_blank"
         >
             <img
                 src="@/assets/telegram.svg"
@@ -23,6 +25,7 @@
         <a
             href="https://www.instagram.com/szut_software/"
             class="app-social-links__link app-social-links__link--fb"
+            target="_blank"
         >
             <img
                 src="@/assets/instagram-sketched.svg"
