@@ -5,7 +5,7 @@ on:
     branches: ["main"]
 
 env:
-  REGION: europe-central-2
+  REGION: europe-central2
   DEPLOYMENT_NAME: szut-software
   REGISTRY_NAME: deploy
 
