@@ -16,10 +16,8 @@ jobs:
     steps:
       - name: Set Tag in evn variable
         run: |
-          echo "${{ env.REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.REGISTRY_NAME }}" > APP_NAME \
-          echo "$GITHUB_SHA" > TAG \
-          export APP_NAME=$(cat APP_NAME) \
-          export TAG=$(cat TAG)
+          export APP_NAME="${{ env.REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.REGISTRY_NAME }}" \
+          export TAG="$GITHUB_SHA"
 
       - name: Checkout
         uses: actions/checkout@main
