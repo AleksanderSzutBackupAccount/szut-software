@@ -1,8 +1,6 @@
 FROM node:19.7.0-alpine as build-stage
 
 RUN npm install -g npm@9.6.7
-RUN rm -rf /usr/local/lib/node_modules/npm
-RUN mv node_modules/npm /usr/local/lib/node_modules/npm
 
 WORKDIR /app
 
