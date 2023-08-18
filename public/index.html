@@ -1,72 +1,144 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>img/icons/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="<%= BASE_URL %>img/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<%= BASE_URL %>img/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<%= BASE_URL %>img/icons/favicon-16x16.png">
-    <link rel="manifest" href="<%= BASE_URL %>img/icons/site.webmanifest">
-    <title>Szut Software - Tworzenie aplikacji webowych, Software house</title>
-    <meta name="keyword"
-          content="Tworzenie aplikacji webowych, software, szut, szut software, programowanie, sklepy interneowe, programista">
-    <meta name="description"
-          content="Nasza firma zajmuje się tworzeniem stron internetowych - projektujemy je od podstaw, bez używania gotowych rozwiązań. Gwarantuje to szybkie działanie oraz większe bezpieczeństwo. Podchodzimy indywidualnie do każdego z naszych klientów - dostosowujemy się do oczekiwań każdego z nich, dzięki czemu strony są oryginalne i spersonalizowane.">
-    <meta name="robots" content="index,follow">
-    <!-- Hotjar Tracking Code for http://szut-software.com/ -->
-    <script>
-        (function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:2360550,hjsv:6};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-            a.appendChild(r);
-        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-    </script>
-    <style>
-        /* open-sans-regular - latin */
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-display: swap;
-            font-weight: 400;
-            src: url('<%= BASE_URL %>fonts/open-sans-v18-latin-regular.eot'); /* IE9 Compat Modes */
-            src: local(''),
-            url('<%= BASE_URL %>fonts/open-sans-v18-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('<%= BASE_URL %>fonts/open-sans-v18-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */ url('<%= BASE_URL %>fonts/open-sans-v18-latin-regular.woff') format('woff'), /* Modern Browsers */ url('<%= BASE_URL %>fonts/open-sans-v18-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */ url('<%= BASE_URL %>fonts/open-sans-v18-latin-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
-        }
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <link rel="icon" href="<%= BASE_URL %>img/icons/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="<%= BASE_URL %>img/icons/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="<%= BASE_URL %>img/icons/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="<%= BASE_URL %>img/icons/favicon-16x16.png"
+        />
+        <link rel="manifest" href="<%= BASE_URL %>img/icons/site.webmanifest" />
+        <title>
+            Szut Software - Tworzenie aplikacji webowych, Software house
+        </title>
+        <meta
+            name="keyword"
+            content="Tworzenie aplikacji webowych, software, szut, szut software, programowanie, sklepy interneowe, programista"
+        />
+        <meta
+            name="description"
+            content="Nasza firma zajmuje się tworzeniem stron internetowych - projektujemy je od podstaw, bez używania gotowych rozwiązań. Gwarantuje to szybkie działanie oraz większe bezpieczeństwo. Podchodzimy indywidualnie do każdego z naszych klientów - dostosowujemy się do oczekiwań każdego z nich, dzięki czemu strony są oryginalne i spersonalizowane."
+        />
+        <meta name="robots" content="index,follow" />
+        <!-- Hotjar Tracking Code for http://szut-software.com/ -->
+        <script>
+            (function (h, o, t, j, a, r) {
+                h.hj =
+                    h.hj ||
+                    function () {
+                        (h.hj.q = h.hj.q || []).push(arguments);
+                    };
+                h._hjSettings = { hjid: 2360550, hjsv: 6 };
+                a = o.getElementsByTagName("head")[0];
+                r = o.createElement("script");
+                r.async = 1;
+                r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(
+                window,
+                document,
+                "https://static.hotjar.com/c/hotjar-",
+                ".js?sv="
+            );
+        </script>
+        <style>
+            /* open-sans-regular - latin */
+            @font-face {
+                font-family: "Open Sans";
+                font-style: normal;
+                font-display: swap;
+                font-weight: 400;
+                src: url("<%= BASE_URL %>fonts/open-sans-v18-latin-regular.eot"); /* IE9 Compat Modes */
+                src: local(""),
+                    url("<%= BASE_URL %>fonts/open-sans-v18-latin-regular.eot?#iefix")
+                        format("embedded-opentype"),
+                    /* IE6-IE8 */
+                        url("<%= BASE_URL %>fonts/open-sans-v18-latin-regular.woff2")
+                        format("woff2"),
+                    /* Super Modern Browsers */
+                        url("<%= BASE_URL %>fonts/open-sans-v18-latin-regular.woff")
+                        format("woff"),
+                    /* Modern Browsers */
+                        url("<%= BASE_URL %>fonts/open-sans-v18-latin-regular.ttf")
+                        format("truetype"),
+                    /* Safari, Android, iOS */
+                        url("<%= BASE_URL %>fonts/open-sans-v18-latin-regular.svg#OpenSans")
+                        format("svg"); /* Legacy iOS */
+            }
 
-        /* open-sans-600 - latin */
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-display: swap;
-            font-weight: 600;
-            src: url('<%= BASE_URL %>fonts/open-sans-v18-latin-600.eot'); /* IE9 Compat Modes */
-            src: local(''),
-            url('<%= BASE_URL %>fonts/open-sans-v18-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('<%= BASE_URL %>fonts/open-sans-v18-latin-600.woff2') format('woff2'), /* Super Modern Browsers */ url('<%= BASE_URL %>fonts/open-sans-v18-latin-600.woff') format('woff'), /* Modern Browsers */ url('<%= BASE_URL %>fonts/open-sans-v18-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */ url('<%= BASE_URL %>fonts/open-sans-v18-latin-600.svg#OpenSans') format('svg'); /* Legacy iOS */
-        }
+            /* open-sans-600 - latin */
+            @font-face {
+                font-family: "Open Sans";
+                font-style: normal;
+                font-display: swap;
+                font-weight: 600;
+                src: url("<%= BASE_URL %>fonts/open-sans-v18-latin-600.eot"); /* IE9 Compat Modes */
+                src: local(""),
+                    url("<%= BASE_URL %>fonts/open-sans-v18-latin-600.eot?#iefix")
+                        format("embedded-opentype"),
+                    /* IE6-IE8 */
+                        url("<%= BASE_URL %>fonts/open-sans-v18-latin-600.woff2")
+                        format("woff2"),
+                    /* Super Modern Browsers */
+                        url("<%= BASE_URL %>fonts/open-sans-v18-latin-600.woff")
+                        format("woff"),
+                    /* Modern Browsers */
+                        url("<%= BASE_URL %>fonts/open-sans-v18-latin-600.ttf")
+                        format("truetype"),
+                    /* Safari, Android, iOS */
+                        url("<%= BASE_URL %>fonts/open-sans-v18-latin-600.svg#OpenSans")
+                        format("svg"); /* Legacy iOS */
+            }
 
-        /* open-sans-700 - latin */
-        @font-face {
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-display: swap;
-            font-weight: 700;
-            src: url('<%= BASE_URL %>fonts/open-sans-v18-latin-700.eot'); /* IE9 Compat Modes */
-            src: local(''),
-            url('<%= BASE_URL %>fonts/open-sans-v18-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('<%= BASE_URL %>fonts/open-sans-v18-latin-700.woff2') format('woff2'), /* Super Modern Browsers */ url('<%= BASE_URL %>fonts/open-sans-v18-latin-700.woff') format('woff'), /* Modern Browsers */ url('<%= BASE_URL %>fonts/open-sans-v18-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */ url('<%= BASE_URL %>fonts/open-sans-v18-latin-700.svg#OpenSans') format('svg'); /* Legacy iOS */
-        }
-    </style>
-</head>
-<body>
-<noscript>
-    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
-        Please enable it to continue.</strong>
-</noscript>
-<div id="app"></div>
-<!-- built files will be auto injected -->
-</body>
+            /* open-sans-700 - latin */
+            @font-face {
+                font-family: "Open Sans";
+                font-style: normal;
+                font-display: swap;
+                font-weight: 700;
+                src: url("<%= BASE_URL %>fonts/open-sans-v18-latin-700.eot"); /* IE9 Compat Modes */
+                src: local(""),
+                    url("<%= BASE_URL %>fonts/open-sans-v18-latin-700.eot?#iefix")
+                        format("embedded-opentype"),
+                    /* IE6-IE8 */
+                        url("<%= BASE_URL %>fonts/open-sans-v18-latin-700.woff2")
+                        format("woff2"),
+                    /* Super Modern Browsers */
+                        url("<%= BASE_URL %>fonts/open-sans-v18-latin-700.woff")
+                        format("woff"),
+                    /* Modern Browsers */
+                        url("<%= BASE_URL %>fonts/open-sans-v18-latin-700.ttf")
+                        format("truetype"),
+                    /* Safari, Android, iOS */
+                        url("<%= BASE_URL %>fonts/open-sans-v18-latin-700.svg#OpenSans")
+                        format("svg"); /* Legacy iOS */
+            }
+        </style>
+    </head>
+    <body>
+        <noscript>
+            <strong
+                >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't
+                work properly without JavaScript enabled. Please enable it to
+                continue.</strong
+            >
+        </noscript>
+        <div id="app"></div>
+        <!-- built files will be auto injected -->
+    </body>
 </html>
