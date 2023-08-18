@@ -1,9 +1,9 @@
 FROM node:19.7.0-alpine as build-stage
 WORKDIR /app
 COPY package*.json ./
-RUN yarn
+RUN npm ci
 COPY . .
-RUN yarn build
+RUN npm run build
 
 FROM nginx:stable-alpine as production-stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
