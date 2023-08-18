@@ -13,13 +13,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@main
+
       - name: Set Tag in evn variable
         run: |
           echo "${{ env.REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.REGISTRY_NAME }}" > APP_NAME
           echo "${{ env.GITHUB_SHA }}" > TAG 
-
-      - name: Checkout
-        uses: actions/checkout@main
 
       - name: Build
         run: |
