@@ -16,6 +16,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
 
+      - name: Setup GCP Service Account
+        uses: google-github-actions/auth@v1
+        with:
+          version: "latest"
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
+
       - name: Set Tag in evn variable
         run: |
           echo "${{ env.REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.REGISTRY_NAME }}" > APP_NAME
@@ -28,13 +35,6 @@ jobs:
       - name: Tag the image to latest
         run: |
           docker tag $(cat APP_NAME):$(cat TAG) $(cat APP_NAME):latest
-
-      - name: Setup GCP Service Account
-        uses: google-github-actions/auth@v1
-        with:
-          version: "latest"
-          credentials_json: ${{ secrets.GCP_SA_KEY }}
-          export_default_credentials: true
 
       - name: Configure Docker
         run: |
