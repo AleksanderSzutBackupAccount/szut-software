@@ -6,6 +6,7 @@ on:
 
 env:
   REGION: europe-central-2
+  APP_NAME: szut-software
   REGISTRY_NAME: deploy
 
 jobs:
