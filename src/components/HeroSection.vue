@@ -1,17 +1,17 @@
 <template>
     <section class="hero-section">
-        <the-header class="hero-section__header"/>
-        <hero-section-animate-image class="hero-section__image"/>
+        <the-header class="hero-section__header" />
+        <hero-section-animate-image class="hero-section__image" />
     </section>
 </template>
 
-<script>
-import TheHeader from "./TheHeader";
-import HeroSectionAnimateImage from "@/components/animate/HeroSectionAnimateImage";
+<script lang="ts">
+import TheHeader from "./TheHeader.vue";
+import HeroSectionAnimateImage from "@/components/animate/HeroSectionAnimateImage.vue";
 
 export default {
     name: "HeroSection",
-    components: {HeroSectionAnimateImage, TheHeader},
+    components: { HeroSectionAnimateImage, TheHeader },
 };
 </script>
 

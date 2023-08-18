@@ -54,7 +54,7 @@ export default {
     }
 
     &__image {
-        height:35px;
+        height: 35px;
     }
 
     &__link {

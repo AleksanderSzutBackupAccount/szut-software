@@ -7,7 +7,7 @@
                 class="app-header__logo"
             />
         </router-link>
-        <app-social-links class="app-header__social-links"/>
+        <app-social-links class="app-header__social-links" />
     </header>
 </template>
 
@@ -16,7 +16,7 @@ import AppSocialLinks from "@/components/AppSocialLinks";
 
 export default {
     name: "AppHeader",
-    components: {AppSocialLinks},
+    components: { AppSocialLinks },
 };
 </script>
 

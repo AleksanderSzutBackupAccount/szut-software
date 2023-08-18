@@ -3,13 +3,13 @@
 </template>
 
 <script>
-import _ from "lodash";
+import uniqueId from "lodash.uniqueid";
 
 export default {
     name: "ParticlesJS",
     data() {
         return {
-            id: _.uniqueId("particles_"),
+            id: uniqueId("particles_"),
             height: 0,
         };
     },
@@ -22,11 +22,11 @@ export default {
         let particle;
         switch (this.shapeTypeString) {
             case "circle":
-                particle = {nb_sides: 12};
+                particle = { nb_sides: 12 };
                 break;
             case "triangle":
             default:
-                particle = {nb_sides: 3};
+                particle = { nb_sides: 3 };
                 break;
         }
 

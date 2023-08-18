@@ -14,9 +14,9 @@
                 x2="0.5"
                 gradientUnits="objectBoundingBox"
             >
-                <stop offset="0" stop-color="gray" stop-opacity="0.251"/>
-                <stop offset="0.54" stop-color="gray" stop-opacity="0.122"/>
-                <stop offset="1" stop-color="gray" stop-opacity="0.102"/>
+                <stop offset="0" stop-color="gray" stop-opacity="0.251" />
+                <stop offset="0.54" stop-color="gray" stop-opacity="0.122" />
+                <stop offset="1" stop-color="gray" stop-opacity="0.102" />
             </linearGradient>
         </defs>
         <g id="Group_6" data-name="Group 6" transform="translate(-0.008 0.006)">
