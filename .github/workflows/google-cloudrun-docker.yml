@@ -6,9 +6,10 @@ on:
 
 env:
   REGION: europe-central-2
-  APP_NAME: szut-software
   DEPLOYMENT_NAME: szut-software
   REGISTRY_NAME: deploy
+  APP_NAME: "${{ env.REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.REGISTRY_NAME }}"
+  TAG: "${{ env.GITHUB_SHA }}"
 
 jobs:
   deploy:
@@ -16,8 +17,8 @@ jobs:
     steps:
       - name: Set Tag in evn variable
         run: |
-          export APP_NAME="${{ env.REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.REGISTRY_NAME }}" \
-          export TAG="$GITHUB_SHA"
+          echo $APP_NAME \
+          echo $tag
 
       - name: Checkout
         uses: actions/checkout@main
