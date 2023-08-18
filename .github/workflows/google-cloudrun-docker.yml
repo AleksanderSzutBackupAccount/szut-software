@@ -6,10 +6,9 @@ on:
 
 env:
   REGION: europe-central-2
+  APP_NAME: szut-software
   DEPLOYMENT_NAME: szut-software
   REGISTRY_NAME: deploy
-  APP_NAME: "${{ env.REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.REGISTRY_NAME }}"
-  TAG: "${{ env.GITHUB_SHA }}"
 
 jobs:
   deploy:
@@ -17,19 +16,19 @@ jobs:
     steps:
       - name: Set Tag in evn variable
         run: |
-          echo $APP_NAME \
-          echo $tag
+          echo "${{ env.REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.REGISTRY_NAME }}" > APP_NAME \
+          echo "${{ env.GITHUB_SHA]}" > TAG 
 
       - name: Checkout
         uses: actions/checkout@main
 
       - name: Build
         run: |
-          docker build -t $APP_NAME:$TAG . 
+          docker build -t $(cat APP_NAME):$(cat TAG) . 
 
       - name: Tag the image to latest
         run: |
-          docker tag $APP_NAME:$TAG $APP_NAME:latest
+          docker tag $(cat APP_NAME):$(cat TAG) $(cat APP_NAME):latest
 
       - name: Setup GCP Service Account
         uses: google-github-actions/auth@v1
@@ -44,13 +43,13 @@ jobs:
 
       - name: Push
         run: |
-          docker push $APP_NAME:latest
+          docker push $(cat APP_NAME):latest
 
       - name: Deploy
         run: |
           gcloud run deploy ${{ env.DEPLOYMENT_NAME }} \
           --region ${{ env.REGION }} \
-          --image $APP_NAME \
+          --image $(cat APP_NAME) \
           --platform managed \
           --allow-unauthenticated \
           --project ${{ secrets.GCP_PROJECT_ID }}
