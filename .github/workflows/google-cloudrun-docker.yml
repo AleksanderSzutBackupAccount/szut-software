@@ -21,7 +21,7 @@ jobs:
       - name: Set Tag in evn variable
         run: |
           echo "${{ env.REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.REGISTRY_NAME }}" > REPOSITORY_URL
-          echo "$(cat REPOSITORY_URL)/${{  env.APP_NANE  }}" > IMAGE_URL
+          echo "$(cat REPOSITORY_URL)/${{  env.APP_NAME  }}" > IMAGE_URL
 
       - name: Build
         run: |
