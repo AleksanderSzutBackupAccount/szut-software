@@ -40,11 +40,12 @@ jobs:
 
       - name: Configure Docker
         run: |
+          gcloud config set artifacts/repository deploy
           gcloud auth configure-docker ${{  env.REGION  }}-docker.pkg.dev
 
       - name: Push
         run: |
-          docker push $(cat IMAGE_URL):latest
+          docker push "$(cat IMAGE_URL):latest"
 
       - name: Deploy
         run: |
