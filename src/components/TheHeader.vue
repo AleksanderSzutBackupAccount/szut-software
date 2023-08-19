@@ -1,9 +1,10 @@
 <template>
     <header class="header">
-        <h1 class="header__header">Szut software</h1>
+        <h1 class="header__header">Szut Ssoftware</h1>
         <h2 class="header__text">
             Tworzymy strony internetowe specjalnie pod&nbsp;twoją firmę
         </h2>
+        <h1>test123</h1>
     </header>
 </template>
 
