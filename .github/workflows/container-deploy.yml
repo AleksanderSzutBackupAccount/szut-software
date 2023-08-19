@@ -4,13 +4,13 @@ on:
   push:
     branches: ["main"]
 
+env:
+  REGION: ${{  vars.REGION || eu-west2  }}
+  REPOSITORY_NAME: ${{  vars.REPOSITORY_NAME || deploy  }}
+  APP_NAME:  ${{  vars.REPOSITORY_NAME || szut-software  }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      REGION: ${{  !env.REGION || eu-west2  }}
-      REPOSITORY_NAME: ${{  !env.REPOSITORY_NAME || deploy  }}
-      APP_NAME: ${{  !env.REPOSITORY_NAME || szut-software  }}
     steps:
       - name: Checkout
         uses: actions/checkout@main
