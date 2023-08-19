@@ -5,10 +5,9 @@ on:
     branches: ["main"]
 
 env:
-  REGION: europe-west2
-  REPOSITORY_NAME: deploy
-  APP_NAME: szut-software
-
+  REGION: ${{  env.REGION || eu-west2  }}
+  REPOSITORY_NAME: ${{  env.REPOSITORY_NAME || deploy  }}
+  APP_NAME:  ${{  env.REPOSITORY_NAME || szut-software  }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
