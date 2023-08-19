@@ -5,11 +5,9 @@ on:
     branches: ["main"]
 
 env:
-  REGION: europe-central2
-  DEPLOYMENT_NAME: szut-software
-  REGISTRY_NAME: deploy
+  REGION: europe-west2
+  REPOSITORY_NAME: deploy
   APP_NAME: szut-software
-  REPOSITORY_NAME: szut-software
 
 jobs:
   deploy:
@@ -20,7 +18,7 @@ jobs:
 
       - name: Set Tag in evn variable
         run: |
-          echo "${{ env.REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.REGISTRY_NAME }}" > REPOSITORY_URL
+          echo "${{ env.REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.REPOSITORY_NAME }}" > REPOSITORY_URL
           echo "$(cat REPOSITORY_URL)/${{  env.APP_NAME  }}" > IMAGE_URL
 
       - name: Build
@@ -51,7 +49,7 @@ jobs:
 
       - name: Deploy
         run: |
-          gcloud run deploy ${{ env.DEPLOYMENT_NAME }} \
+          gcloud run deploy ${{ env.APP_NAME }} \
           --region ${{ env.REGION }} \
           --image $(cat IMAGE_URL) \
           --platform managed \
