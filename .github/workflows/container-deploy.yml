@@ -5,12 +5,12 @@ on:
     branches: ["main"]
 
 jobs:
-  environment:
-    REGION: ${{  !env.REGION || eu-west2  }}
-    REPOSITORY_NAME: ${{  !env.REPOSITORY_NAME || deploy  }}
-    APP_NAME: ${{  !env.REPOSITORY_NAME || szut-software  }}
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      REGION: ${{  !env.REGION || eu-west2  }}
+      REPOSITORY_NAME: ${{  !env.REPOSITORY_NAME || deploy  }}
+      APP_NAME: ${{  !env.REPOSITORY_NAME || szut-software  }}
     steps:
       - name: Checkout
         uses: actions/checkout@main
