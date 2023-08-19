@@ -8,6 +8,7 @@ env:
   REGION: europe-central2
   DEPLOYMENT_NAME: szut-software
   REGISTRY_NAME: deploy
+  APP_NAME: szut-software
 
 jobs:
   deploy:
@@ -25,16 +26,17 @@ jobs:
 
       - name: Set Tag in evn variable
         run: |
-          echo "${{ env.REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.REGISTRY_NAME }}" > APP_NAME
+          echo "${{ env.REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.REGISTRY_NAME }}" > REPOSITORY_URL
+          echo "$(cat REPOSITORY_URL)/${{  env.APP_NANE  }}" > IMAGE_URL
           echo "${{ github.sha }}" > TAG
 
       - name: Build
         run: |
-          docker build -t $(cat APP_NAME):$(cat TAG) .
+          docker build -t $(cat REPOSITORY_URL):$(cat TAG) .
 
       - name: Tag the image to latest
         run: |
-          docker tag $(cat APP_NAME):$(cat TAG) $(cat APP_NAME):latest
+          docker tag $(cat REPOSITORY_URL):$(cat TAG) $(cat REPOSITORY_URL):latest
 
       - name: Configure Docker
         run: |
@@ -42,13 +44,13 @@ jobs:
 
       - name: Push
         run: |
-          docker push $(cat APP_NAME):latest
+          docker push $(cat IMAGE_URL):latest
 
       - name: Deploy
         run: |
           gcloud run deploy ${{ env.DEPLOYMENT_NAME }} \
           --region ${{ env.REGION }} \
-          --image $(cat APP_NAME) \
+          --image $(cat IMAGE_URL) \
           --platform managed \
           --allow-unauthenticated \
           --project ${{ secrets.GCP_PROJECT_ID }}
