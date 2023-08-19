@@ -31,19 +31,19 @@ jobs:
         run: |
           docker tag $(cat IMAGE_URL):$GITHUB_SHA $(cat IMAGE_URL):latest
 
-      - name: Docker login
-        uses: docker/login-action@v1
-        with:
-          registry: ${{ env.REGION }}-docker.pkg.dev
-          username: oauth2accesstoken
-          password: ${{ steps.auth.outputs.access_token }}
-
       - name: Authenticate to Google Cloud
         id: auth
         uses: google-github-actions/auth@v0.6.0
         with:
           credentials_json: ${{ secrets.GCP_CREDENTIALS }}
           token_format: access_token
+
+      - name: Docker login
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGION }}-docker.pkg.dev
+          username: oauth2accesstoken
+          password: ${{ steps.auth.outputs.access_token }}
 
       - name: Push
         run: |
