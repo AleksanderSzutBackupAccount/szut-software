@@ -17,7 +17,7 @@
 </style>
 <script>
 import AppHeader from "@/components/AppHeader.vue";
-import ParticlesJS from "@/components/ParticlesJS.vue";
+import ParticlesJS from "@/layout/ParticlesJS.vue";
 
 export default {
     components: { ParticlesJS, AppHeader },

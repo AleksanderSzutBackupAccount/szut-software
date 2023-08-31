@@ -1,6 +1,6 @@
 <template>
     <nav class="app-navigation">
-        <router-link :to="{ name: 'home' }"> Home</router-link>
+        <router-link :to="{ name: 'home' }">{{ $t("home") }}</router-link>
         <router-link :to="{ name: 'contact' }"> contact</router-link>
         <router-link :to="{ name: 'services' }"> services</router-link>
         <router-link :to="{ name: 'technologies' }"> technologies</router-link>
@@ -10,7 +10,7 @@
 
 <script lang="ts">
 export default {
-    name: "AppNavigation"
+    name: "AppNavigation",
 };
 </script>
 

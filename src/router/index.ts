@@ -9,28 +9,28 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: "/",
         name: "home",
-        component: Home
+        component: Home,
     },
     {
         path: "/about-us",
         name: "about-us",
-        component: AboutUs
+        component: AboutUs,
     },
     {
         path: "/contact",
         name: "contact",
-        component: Contact
+        component: Contact,
     },
     {
         path: "/services",
         name: "services",
-        component: Services
+        component: Services,
     },
     {
         path: "/technologies",
         name: "technologies",
-        component: Technologies
-    }
+        component: Technologies,
+    },
 ];
 
 const router = createRouter({
