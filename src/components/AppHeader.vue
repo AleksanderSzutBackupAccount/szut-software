@@ -1,22 +1,22 @@
 <template>
     <header class="app-header">
-        <router-link :to="{ name: 'Home' }">
+        <router-link :to="{ name: 'home' }">
             <img
                 src="@/assets/logo.svg"
-                alt="Szut software logo"
+                :alt="`${getAppName()} logo`"
                 class="app-header__logo"
             />
         </router-link>
-        <app-social-links class="app-header__social-links" />
+        <app-navigation class="app-header__nav" />
     </header>
 </template>
 
 <script>
-import AppSocialLinks from "@/components/AppSocialLinks";
+import AppNavigation from "@/components/AppNavigation.vue";
 
 export default {
     name: "AppHeader",
-    components: { AppSocialLinks },
+    components: { AppNavigation }
 };
 </script>
 

@@ -1,6 +1,8 @@
 <template>
     <header class="header">
-        <h1 class="header__header">Szut software</h1>
+        <h1 class="header__header">
+            {{ getAppName() }}
+        </h1>
         <h2 class="header__text">
             Tworzymy strony internetowe specjalnie pod&nbsp;twoją firmę
         </h2>
