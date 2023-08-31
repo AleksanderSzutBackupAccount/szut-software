@@ -1,10 +1,10 @@
 <template>
     <header class="header">
         <h1 class="header__header">
-            {{ getAppName() }}
+            {{ $t("app-name") }}
         </h1>
         <h2 class="header__text">
-            Tworzymy strony internetowe specjalnie pod&nbsp;twoją firmę
+            {{ $t("hero.text") }}
         </h2>
     </header>
 </template>

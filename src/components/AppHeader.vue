@@ -16,7 +16,7 @@ import AppNavigation from "@/components/AppNavigation.vue";
 
 export default {
     name: "AppHeader",
-    components: { AppNavigation }
+    components: { AppNavigation },
 };
 </script>
 

@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import HeroSection from "@/components/HeroSection.vue";
+import HeroSection from "@/components/Hero/HeroSection.vue";
 import ContactSection from "@/components/ContactSection.vue";
 
 @Options({
