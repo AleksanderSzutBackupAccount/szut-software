@@ -6,10 +6,9 @@
 import { Options, Vue } from "vue-class-component";
 
 @Options({
-    components: {}
+    components: {},
 })
-export default class HomeView extends Vue {
-}
+export default class HomeView extends Vue {}
 </script>
 <style lang="scss">
 .home-view {
