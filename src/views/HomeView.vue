@@ -1,17 +1,17 @@
 <template>
     <div class="home-view" id="particles-js">
-        <hero-section />
+        <the-hero />
         <contact-section />
     </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import HeroSection from "@/components/Hero/HeroSection.vue";
 import ContactSection from "@/components/ContactSection.vue";
+import TheHero from "@/components/TheHero/TheHero.vue";
 
 @Options({
-    components: { HeroSection, ContactSection },
+    components: { TheHero, ContactSection },
 })
 export default class HomeView extends Vue {}
 </script>

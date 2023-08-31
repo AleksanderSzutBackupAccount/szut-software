@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    name: "TheHeader",
+    name: "TheHeroHeader",
 };
 </script>
 
