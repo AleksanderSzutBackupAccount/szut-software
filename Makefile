@@ -17,7 +17,7 @@ update:
 	make setup
 
 update-force:
-	./scripts/update.sh
+	./scripts/update-force.sh
 	make setup
 
 dev:
