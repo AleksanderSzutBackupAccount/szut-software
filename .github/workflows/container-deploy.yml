@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 env:
-  REGION: europe-west2
+  REGION: europe-west1
   APP_NAME: szut-software
   STAGE: production
 
