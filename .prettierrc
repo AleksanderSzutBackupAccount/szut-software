@@ -1,3 +1,6 @@
 {
-    "endOfLine": "lf"
+    "singleQuote": false,
+    "semi": true,
+    "vueIndentScriptAndStyle": true,
+    "endOfLine": "auto"
 }

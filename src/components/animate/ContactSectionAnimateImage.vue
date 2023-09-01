@@ -730,10 +730,6 @@
     </svg>
 </template>
 
-<script>
-export default {
-    name: "ContactSectionAnimateImage",
-};
-</script>
+<script lang="ts" setup></script>
 
 <style scoped></style>

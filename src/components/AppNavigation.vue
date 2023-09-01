@@ -1,17 +1,32 @@
 <template>
     <nav class="app-navigation">
-        <router-link :to="{ name: 'home' }">{{ $t("home") }}</router-link>
-        <router-link :to="{ name: 'contact' }"> contact</router-link>
-        <router-link :to="{ name: 'services' }"> services</router-link>
-        <router-link :to="{ name: 'technologies' }"> technologies</router-link>
-        <router-link :to="{ name: 'about-us' }"> About Us</router-link>
+        <router-link
+            v-for="item in navigationItems"
+            :key="item"
+            class="app-navigation__item"
+            :to="{ name: item }"
+        >
+            {{ $t(`views.${item}.nav-title`) }}
+        </router-link>
     </nav>
 </template>
 
-<script lang="ts">
-export default {
-    name: "AppNavigation",
-};
+<script lang="ts" setup>
+    import { reactive } from "vue";
+
+    const navigationItems = reactive([
+        "home",
+        "contact",
+        "services",
+        "technologies",
+        "about-us",
+    ]);
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+    .app-navigation {
+        display: flex;
+        &__item {
+        }
+    }
+</style>

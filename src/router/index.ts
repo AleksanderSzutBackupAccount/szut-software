@@ -1,40 +1,40 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Home from "../views/HomeView.vue";
-import Technologies from "../views/TechnologiesView.vue";
-import AboutUs from "../views/AboutUsView.vue";
-import Contact from "../views/ContactView.vue";
-import Services from "../views/ServicesView.vue";
+import HomeView from "../modules/main/Pages/HomeView.vue";
+import AboutUsView from "../modules/main/Pages/AboutUsView.vue";
+import ContactView from "../modules/main/Pages/ContactView.vue";
+import ServicesView from "../modules/main/Pages/ServicesView.vue";
+import TechnologiesView from "../modules/main/Pages/TechnologiesView.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {
         path: "/",
         name: "home",
-        component: Home,
+        component: HomeView,
     },
     {
         path: "/about-us",
         name: "about-us",
-        component: AboutUs,
+        component: AboutUsView,
     },
     {
         path: "/contact",
         name: "contact",
-        component: Contact,
+        component: ContactView,
     },
     {
         path: "/services",
         name: "services",
-        component: Services,
+        component: ServicesView,
     },
     {
         path: "/technologies",
         name: "technologies",
-        component: Technologies,
+        component: TechnologiesView,
     },
 ];
 
 const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
+    history: createWebHistory(),
     routes,
 });
 
