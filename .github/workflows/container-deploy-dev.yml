@@ -7,11 +7,11 @@ on:
 env:
   REGION: europe-west2
   APP_NAME: szut-software
-  STAGE: production
+  STAGE: develop
 
 jobs:
   deploy:
-    environment: production
+    environment: develop
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
