@@ -22,8 +22,8 @@
 </template>
 
 <script lang="ts" setup>
-    import ContactSectionAnimateImage from "@/components/animate/ContactSectionAnimateImage.vue";
-</script>
+import ContactSectionAnimateImage
+    from "@/components/animate/ContactSectionAnimateImage.vue";</script>
 
 <style lang="scss" scoped>
     .contact-section {
@@ -103,7 +103,7 @@
                 height: 160px;
                 opacity: 0.2;
                 z-index: -1;
-                background-image: url("@/assets/triangle.svg");
+                background-image: url("@/assets/images/triangle.svg");
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;

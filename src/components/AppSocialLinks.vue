@@ -6,7 +6,7 @@
             target="_blank"
         >
             <img
-                src="@/assets/facebook.svg"
+                src="@/assets/icons/facebook.svg"
                 class="app-social-links__image"
                 alt="Przejdź do naszego facebook'a"
             />
@@ -17,7 +17,7 @@
             target="_blank"
         >
             <img
-                src="@/assets/telegram.svg"
+                src="@/assets/icons/telegram.svg"
                 class="app-social-links__image"
                 alt="Przejdź do naszego telegrama"
             />
@@ -28,7 +28,7 @@
             target="_blank"
         >
             <img
-                src="@/assets/instagram-sketched.svg"
+                src="@/assets/icons/instagram-sketched.svg"
                 class="app-social-links__image"
                 alt="Przejdź do naszego instagram"
             />

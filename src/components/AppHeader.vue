@@ -2,8 +2,8 @@
     <header class="app-header">
         <router-link :to="{ name: 'home' }">
             <img
-                src="@/assets/logo.svg"
-                :alt="`${getAppName()} logo`"
+                src="@/assets/branding/logo.svg"
+                :alt="`${$t('app-name')} 'logo`"
                 class="app-header__logo"
             />
         </router-link>
@@ -12,9 +12,9 @@
 </template>
 
 <script>
-    import AppNavigation from "@/components/AppNavigation.vue";
+import AppNavigation from "@/components/AppNavigation.vue";
 
-    export default {
+export default {
         name: "AppHeader",
         components: { AppNavigation },
     };

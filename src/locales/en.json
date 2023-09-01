@@ -1,5 +1,5 @@
 {
-  "app-name": "Teest",
+    "app-name": "Teest",
     "views": {
         "home": {
             "title": "Home",
@@ -20,7 +20,7 @@
         "about-us": {
             "title": "About Us",
             "nav-title": "About Us"
-        },
+        }
     },
     "hero": {
         "text": "Tworzymy strony internetowe specjalnie pod twoją firmę"
