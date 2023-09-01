@@ -966,9 +966,9 @@
 </template>
 
 <script>
-export default {
-    name: "HeroSectionAnimateImage",
-};
+    export default {
+        name: "HeroSectionAnimateImage",
+    };
 </script>
 
 <style scoped></style>

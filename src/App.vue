@@ -6,20 +6,19 @@
 </template>
 
 <style lang="scss">
-#app {
-    font-family: "Open Sans", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    padding: 20px;
-    overflow: hidden;
-    color: #111;
-}
+    #app {
+        font-family: "Open Sans", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        padding: 20px;
+        overflow: hidden;
+    }
 </style>
 <script>
-import AppHeader from "@/components/AppHeader.vue";
-import ParticlesJS from "@/layout/ParticlesJS.vue";
+    import AppHeader from "@/components/AppHeader.vue";
+    import ParticlesJS from "@/layout/ParticlesJS.vue";
 
-export default {
-    components: { ParticlesJS, AppHeader },
-};
+    export default {
+        components: { ParticlesJS, AppHeader },
+    };
 </script>

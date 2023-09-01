@@ -1,12 +1,10 @@
-import { shallowMount } from "@vue/test-utils";
-import HelloWorld from "@/components/HelloWorld.vue";
+import { mount } from "@vue/test-utils";
+import Hello from "../../src/components/Hello.vue";
 
-describe("HelloWorld.vue", () => {
-    it("renders props.msg when passed", () => {
-        const msg = "new message";
-        const wrapper = shallowMount(HelloWorld, {
-            props: { msg },
-        });
+describe("Hello", () => {
+    it("check if prop msg match", () => {
+        const msg = "I'm a example component with composition API";
+        const wrapper = mount(Hello, { props: { msg } });
         expect(wrapper.text()).toMatch(msg);
     });
 });

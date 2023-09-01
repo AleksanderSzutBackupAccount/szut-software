@@ -1,43 +1,43 @@
 <template>
-    <div class="particles" :id="id"></div>
+    <div :id="id" class="particles" />
 </template>
 
 <script>
-import uniqueId from "lodash.uniqueid";
+    import uniqueId from "lodash.uniqueid";
+    import "strict-particles-js";
 
-export default {
-    name: "ParticlesJS",
-    data() {
-        return {
-            id: uniqueId("particles_"),
-            height: 0,
-        };
-    },
-    props: {
-        shapeTypeString: {
-            type: String,
+    export default {
+        name: "ParticlesJS",
+        props: {
+            shapeTypeString: {
+                type: String,
+            },
         },
-    },
-    mounted() {
-        let particle;
-        switch (this.shapeTypeString) {
-            case "circle":
-                particle = { nb_sides: 12 };
-                break;
-            case "triangle":
-            default:
-                particle = { nb_sides: 3 };
-                break;
-        }
+        data() {
+            return {
+                id: uniqueId("particles_"),
+                height: 0,
+            };
+        },
+        mounted() {
+            let particle;
+            switch (this.shapeTypeString) {
+                case "circle":
+                    particle = { nb_sides: 12 };
+                    break;
+                case "triangle":
+                default:
+                    particle = { nb_sides: 3 };
+                    break;
+            }
 
-        require("particles.js");
-        this.$nextTick(() => {
-            this.initParticlesJS(particle);
-        });
-    },
+            this.$nextTick(() => {
+                this.initParticlesJS(particle);
+            });
+        },
 
-    methods: {
-        initParticlesJS(particle) {
+        methods: {
+            initParticlesJS(particle) {
             /* eslint-disable */
             particlesJS(this.id, {
                 particles: {

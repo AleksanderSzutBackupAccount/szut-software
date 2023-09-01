@@ -12,31 +12,31 @@
 </template>
 
 <script>
-import AppNavigation from "@/components/AppNavigation.vue";
+    import AppNavigation from "@/components/AppNavigation.vue";
 
-export default {
-    name: "AppHeader",
-    components: { AppNavigation },
-};
+    export default {
+        name: "AppHeader",
+        components: { AppNavigation },
+    };
 </script>
 
 <style lang="scss" scoped>
-.app-header {
-    display: flex;
-    margin: 0 auto;
-    align-items: flex-start;
-    justify-content: space-between;
-    max-width: 1300px;
-    width: 100%;
-    padding: 20px 0 50px 0;
+    .app-header {
+        display: flex;
+        margin: 0 auto;
+        align-items: flex-start;
+        justify-content: space-between;
+        max-width: 1300px;
+        width: 100%;
+        padding: 20px 0 50px 0;
 
-    &__logo {
-        width: 30vw;
-        min-width: 120px;
-        max-width: 180px;
-    }
+        &__logo {
+            width: 30vw;
+            min-width: 120px;
+            max-width: 180px;
+        }
 
-    &__social-links {
+        &__social-links {
+        }
     }
-}
 </style>
