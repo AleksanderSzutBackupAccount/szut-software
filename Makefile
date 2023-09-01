@@ -1,16 +1,14 @@
 nvm:
-	command -v nvm >/dev/null 2>&1|./scripts/install-nvm.sh
+	source ${NVM_DIR}/nvm.sh && nvm use
 
-check-version: nvm
-	@node scripts/checkversion
+check-version:
+	source ${NVM_DIR}/nvm.sh && nvm use && node scripts/checkversion;
 
 help:
 	@echo 'make [tab]'
 
 setup:
-	make check-version
-	npm install -g npm@9.6.7
-	npm install
+	source ${NVM_DIR}/nvm.sh && nvm use && npm install -g npm@9.6.7 && npm install
 
 update:
 	./scripts/update.sh
@@ -21,9 +19,7 @@ update-force:
 	make setup
 
 dev:
-	make check-version
-	npm run dev
+	source ${NVM_DIR}/nvm.sh && nvm use && node scripts/checkversion && npm run dev
 
 build:
-	make check-version
-	npm run build
+	source ${NVM_DIR}/nvm.sh && nvm use && node scripts/checkversion && npm run build
