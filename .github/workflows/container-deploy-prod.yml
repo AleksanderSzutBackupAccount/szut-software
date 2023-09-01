@@ -6,7 +6,7 @@ on:
 
 env:
   REGION: europe-west2
-  REPOSITORY_NAME: deploy
+  REPOSITORY_NAME: production
   APP_NAME: szut-software
 
 jobs:
