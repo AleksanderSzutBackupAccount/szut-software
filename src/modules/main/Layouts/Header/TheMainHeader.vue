@@ -1,9 +1,5 @@
 <template>
-    <header
-        ref="content"
-        :class="{ 'app-header--shrinked': isShrinked }"
-        class="app-header"
-    >
+    <header :class="{ 'app-header--shrinked': isShrinked }" class="app-header">
         <div class="app-header__wrapper">
             <div class="app-header__inner">
                 <router-link
@@ -13,10 +9,11 @@
                     <img
                         :alt="`${$t('app-name')} 'logo`"
                         class="app-header__logo"
-                        src="@/assets/branding/logo.svg"
+                        src="../../../../assets/branding/logo.svg"
                     />
                 </router-link>
-                <app-navigation
+
+                <app-navigation-desktop
                     class="app-header__nav"
                     :shrinked="isShrinked"
                 />
@@ -26,7 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-    import AppNavigation from "@/components/AppNavigation.vue";
+    import AppNavigationDesktop from "@/modules/main/Layouts/Header/MainNavigationDesktop.vue";
     import { computed, onMounted, onUnmounted, ref } from "vue";
 
     const isScrolled = ref<boolean>(false);

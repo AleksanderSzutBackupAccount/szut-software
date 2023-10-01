@@ -18,9 +18,11 @@
         "lodash.uniqueid": "^4.0.1",
         "pinia": "^2.0.13",
         "strict-particles-js": "^2.0.0",
+        "styled-components": "^6.0.8",
         "vue": "^3.2.33",
         "vue-i18n": "^9.2.2",
-        "vue-router": "^4.0.14"
+        "vue-router": "^4.0.14",
+        "vue-styled-components": "^1.6.0"
     },
     "devDependencies": {
         "@types/gsap": "^3.0.0",
