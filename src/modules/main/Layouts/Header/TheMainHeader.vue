@@ -1,21 +1,24 @@
 <template>
-    <header :class="{ 'app-header--shrinked': isShrinked }" class="app-header">
-        <div class="app-header__wrapper">
-            <div class="app-header__inner">
+    <header
+        :class="{ 'main-header--collapsed': isCollapsed }"
+        class="main-header"
+    >
+        <div class="main-header__wrapper">
+            <div class="main-header__inner">
                 <router-link
                     :to="{ name: 'home' }"
-                    class="app-header__logo-wrapper"
+                    class="main-header__logo-wrapper"
                 >
                     <img
-                        :alt="`${$t('app-name')} 'logo`"
-                        class="app-header__logo"
-                        src="../../../../assets/branding/logo.svg"
+                        :alt="`${$t('main-name')} 'logo`"
+                        class="main-header__logo"
+                        src="@/assets/branding/logo.svg"
                     />
                 </router-link>
 
-                <app-navigation-desktop
-                    class="app-header__nav"
-                    :shrinked="isShrinked"
+                <main-navigation-desktop
+                    class="main-header__nav"
+                    :shrinked="isCollapsed"
                 />
             </div>
         </div>
@@ -23,11 +26,11 @@
 </template>
 
 <script lang="ts" setup>
-    import AppNavigationDesktop from "@/modules/main/Layouts/Header/MainNavigationDesktop.vue";
+    import MainNavigationDesktop from "@/modules/main/Layouts/Header/MainNavigationDesktop.vue";
     import { computed, onMounted, onUnmounted, ref } from "vue";
 
     const isScrolled = ref<boolean>(false);
-    const isShrinked = computed(() => isScrolled.value);
+    const isCollapsed = computed(() => isScrolled.value);
 
     const doScroll = () => {
         isScrolled.value = window.scrollY > 50;
@@ -46,7 +49,8 @@
     body {
         padding-top: 120px !important;
     }
-    .app-header {
+
+    .main-header {
         $app-header: &;
         width: 100%;
         height: 100px;
@@ -65,7 +69,7 @@
             height: 100px;
         }
 
-        &:not(&--shrinked) {
+        &:not(&--collapsed) {
             border-color: transparent;
         }
 
@@ -76,7 +80,7 @@
             align-items: stretch;
         }
 
-        &--shrinked {
+        &--collapsed {
             background-color: white;
 
             &:not(&:hover) {
@@ -91,7 +95,7 @@
                     transform-origin: center center;
                 }
 
-                .app-navigation__indicator {
+                .main-navigation__indicator {
                     bottom: 10px;
                 }
             }

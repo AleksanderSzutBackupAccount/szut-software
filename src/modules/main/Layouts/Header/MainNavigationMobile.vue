@@ -31,7 +31,7 @@
 <script lang="ts" setup>
     import { defineProps, reactive, ref, Ref } from "vue";
     import { Back, Power4, TweenMax } from "gsap";
-    import RouterLinks from "@/modules/main/Layouts/Header/MainNavigatioItems.vue";
+    import RouterLinks from "@/modules/main/Layouts/Header/MainNavigationItems.vue";
 
     type RouterLinksType = typeof RouterLinks extends new () => infer T
         ? T

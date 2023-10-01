@@ -1,6 +1,6 @@
 <template>
     <nav class="app-navigation">
-        <router-links
+        <nav-items
             ref="links"
             :navigation-items="navigationItems"
             @tilt="tilt"
@@ -31,11 +31,9 @@
 <script lang="ts" setup>
     import { defineProps, reactive, ref, Ref } from "vue";
     import { Back, Power4, TweenMax } from "gsap";
-    import RouterLinks from "@/modules/main/Layouts/Header/MainNavigatioItems.vue";
+    import NavItems from "@/modules/main/Layouts/Header/MainNavigationItems.vue";
 
-    type RouterLinksType = typeof RouterLinks extends new () => infer T
-        ? T
-        : never;
+    type NavItemsType = typeof NavItems extends new () => infer T ? T : never;
 
     const props = defineProps({
         shrinked: {
@@ -52,7 +50,7 @@
         x: 0,
         width: 0,
     };
-    const links = ref() as Ref<RouterLinksType>;
+    const links = ref() as Ref<NavItemsType>;
     const navigationItems = reactive([
         "home",
         "services",
