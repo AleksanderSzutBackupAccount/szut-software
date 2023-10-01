@@ -26,7 +26,7 @@
     const navigationItems = reactive([
         "home",
         "services",
-        "technologes",
+        "technologies",
         "about-us",
     ]);
 </script>
