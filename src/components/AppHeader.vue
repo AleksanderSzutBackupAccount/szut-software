@@ -33,7 +33,7 @@
     const isShrinked = computed(() => isScrolled.value);
 
     const doScroll = () => {
-        isScrolled.value = window.scrollY > 100;
+        isScrolled.value = window.scrollY > 50;
     };
 
     onMounted(() => {
@@ -92,6 +92,10 @@
                 #{$app-header}__logo {
                     transform: scale(0.8);
                     transform-origin: center center;
+                }
+
+                .app-navigation__indicator {
+                    bottom: 10px;
                 }
             }
         }

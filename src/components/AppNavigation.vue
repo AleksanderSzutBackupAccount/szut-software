@@ -1,16 +1,18 @@
 <template>
     <nav class="app-navigation">
         <router-links
+            ref="links"
             :navigation-items="navigationItems"
             @tilt="tilt"
             @activate="activateTab"
             @change="onItemChange"
+            @hover="onHover"
         />
         <div
             ref="indicator"
             class="app-navigation__indicator"
             :class="{
-                'app-navigatidon__indicator--hide': false,
+                'app-navigatidon__indicator--hide': hidden,
                 'app-navigation__indicator--shrinked': props.shrinked,
             }"
         />
@@ -27,9 +29,13 @@
 </template>
 
 <script lang="ts" setup>
-    import { defineProps, reactive, ref } from "vue";
+    import { defineProps, reactive, ref, Ref } from "vue";
     import { Back, Power4, TweenMax } from "gsap";
     import RouterLinks from "@/components/RouterLinks.vue";
+
+    type RouterLinksType = typeof RouterLinks extends new () => infer T
+        ? T
+        : never;
 
     const props = defineProps({
         shrinked: {
@@ -39,6 +45,14 @@
     });
     const NAV_ITEM_SELECTOR = "app-navigation__item";
     const indicator = ref();
+    const hidden = ref(true);
+    const PADDING = 12;
+
+    let defaultProperties = {
+        x: 0,
+        width: 0,
+    };
+    const links = ref() as Ref<RouterLinksType>;
     const navigationItems = reactive([
         "home",
         "services",
@@ -46,46 +60,79 @@
         "about-us",
     ]);
 
+    function getVars(positionX: number, width: number) {
+        return { x: positionX + PADDING, width: width - PADDING * 2 };
+    }
     const setIndicatorPos = (target: HTMLElement) => {
         const positionX = target.offsetLeft;
         const width = target.getBoundingClientRect().width;
 
-        TweenMax.set(indicator.value, { x: positionX, width: width });
+        TweenMax.set(indicator.value, getVars(positionX, width));
     };
+
+    function moveIndicatorFromPrimitives(positionX: number, width: number) {
+        TweenMax.to(indicator.value, 0.1, getVars(positionX, width));
+    }
+
+    function moveIndicator(target: HTMLElement) {
+        const positionX = target.offsetLeft;
+        const width = target.getBoundingClientRect().width;
+        moveIndicatorFromPrimitives(positionX, width);
+    }
 
     const tilt = (e: Event) => {
         const target = e.target as HTMLElement;
         if (target.classList.contains(NAV_ITEM_SELECTOR)) {
-            TweenMax.to(e.target, 0.2, { scale: 0.8, ease: Power4.easeOut });
+            TweenMax.to(e.target, 0.2, { scale: 0.7, ease: Power4.easeOut });
         }
     };
+
     const activateTab = (e: Event) => {
         const target = e.target as HTMLElement;
         if (target.classList.contains(NAV_ITEM_SELECTOR)) {
-            const positionX = target.offsetLeft;
-            const width = target.getBoundingClientRect().width;
-            TweenMax.to(indicator.value, 0.5, { x: positionX, width: width });
+            moveIndicator(target);
             TweenMax.to(e.target, 0.3, {
                 scale: 1,
                 ease: Back.easeOut.config(5),
             });
+            links.value.reload();
         }
     };
     const onItemChange = (element: HTMLElement) => {
-        console.log(element);
-        setIndicatorPos(element);
+        if (defaultProperties.width === 0) {
+            setIndicatorPos(element);
+        } else {
+            moveIndicator(element);
+        }
+        defaultProperties.width = element.getBoundingClientRect().width;
+        defaultProperties.x = element.offsetLeft;
+    };
+
+    const resetIndicator = () => {
+        moveIndicatorFromPrimitives(
+            defaultProperties.x,
+            defaultProperties.width
+        );
+    };
+
+    const onHover = (e: Event) => {
+        const target = e.target as HTMLElement;
+        if (e.type === "mouseenter") {
+            moveIndicator(target);
+        } else {
+            resetIndicator();
+        }
     };
 </script>
 
 <style lang="scss">
     .app-navigation {
+        $app-nav: &;
         display: flex;
         align-items: stretch;
         font-weight: 600 !important;
         overflow: hidden;
         position: relative;
-
-        $app-nav: &;
 
         &:hover {
             #{$app-nav}__item {
@@ -118,17 +165,15 @@
             transition: all ease-in-out 0.2s;
             position: relative;
             cursor: pointer;
-
-            &:hover {
-            }
         }
 
         &__indicator {
+            $indicator: &;
             content: "";
             position: absolute;
             bottom: 0;
             height: 2px;
-            transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.2s,
+            transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.1s,
                 opacity cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
             display: block;
             background-color: red;
@@ -137,18 +182,6 @@
             &--hide {
                 opacity: 0;
             }
-
-            &--shrinked {
-                transform: translateY(-10px);
-                transition: transform ease-in-out 0.25s;
-            }
-        }
-
-        .bounce {
-        }
-
-        &__item {
-            $parent: &;
         }
 
         &__item-action {
