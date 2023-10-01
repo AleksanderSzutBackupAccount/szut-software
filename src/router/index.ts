@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import MainLayout from "@/modules/main/Layouts/MainLayout.vue";
-import MainRouter from "@/modules/main/router/index";
+import MainRouter from "@/modules/main/Router/MainRouter";
 
 const routes: Array<RouteRecordRaw> = [
     {
