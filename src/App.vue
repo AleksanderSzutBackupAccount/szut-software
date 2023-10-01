@@ -1,7 +1,7 @@
 <template class="app">
     <app-header />
     <router-view />
-    <template v-if="false">
+    <template v-if="true">
         <ParticlesJS />
         <ParticlesJS shape-type-string="circle" />
     </template>
@@ -16,10 +16,10 @@
     }
 </style>
 <script>
-import AppHeader from "@/components/AppHeader.vue";
-import ParticlesJS from "@/layout/ParticlesJS.vue";
+    import AppHeader from "@/components/AppHeader.vue";
+    import ParticlesJS from "@/layout/ParticlesJS.vue";
 
-export default {
+    export default {
         components: { ParticlesJS, AppHeader },
     };
 </script>

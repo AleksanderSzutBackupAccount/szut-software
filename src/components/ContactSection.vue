@@ -22,8 +22,8 @@
 </template>
 
 <script lang="ts" setup>
-import ContactSectionAnimateImage
-    from "@/components/animate/ContactSectionAnimateImage.vue";</script>
+    import ContactSectionAnimateImage from "@/components/animate/ContactSectionAnimateImage.vue";
+</script>
 
 <style lang="scss" scoped>
     .contact-section {
