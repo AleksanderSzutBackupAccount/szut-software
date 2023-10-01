@@ -1,8 +1,8 @@
 <template class="app">
     <app-header />
     <router-view />
-    <ParticlesJS />
-    <ParticlesJS shape-type-string="circle" />
+    <Particles />
+    <Particles shape-type-string="circle" />
 </template>
 
 <style lang="scss">
@@ -15,9 +15,9 @@
 </style>
 <script>
     import AppHeader from "@/components/AppHeader.vue";
-    import ParticlesJS from "@/components/ParticlesJS.vue";
+    import Particles from "@/components/Particles.vue";
 
     export default {
-        components: { ParticlesJS, AppHeader },
+        components: { Particles, AppHeader },
     };
 </script>

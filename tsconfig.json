@@ -11,6 +11,7 @@
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
+      "allowJs": true,
     "baseUrl": ".",
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
     "types": ["vite/client", "@types/jest"],
