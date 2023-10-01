@@ -7,21 +7,33 @@
             <div class="main-header__inner">
                 <main-header-logo />
                 <main-navigation-desktop
+                    v-if="deskstop"
                     class="main-header__nav"
                     :shrinked="isCollapsed"
                 />
+                <main-navigation-mobile v-else />
+                {{ deskstop }}
             </div>
         </div>
     </header>
 </template>
 
 <script lang="ts" setup>
-    import MainNavigationDesktop from "@/modules/main/Layouts/Header/MainNavigationDesktop.vue";
     import { computed, onMounted, onUnmounted, ref } from "vue";
+    import { useBreakpoint } from "vue-composable";
+
     import MainHeaderLogo from "@/modules/main/Layouts/Header/MainHeaderLogo.vue";
+    import MainNavigationDesktop from "@/modules/main/Layouts/Header/MainNavigationDesktop.vue";
+    import MainNavigationMobile from "@/modules/main/Layouts/Header/MainNavigationMobile.vue";
 
     const isScrolled = ref<boolean>(false);
     const isCollapsed = computed(() => isScrolled.value);
+
+    const { current, deskstop, mobile, mini } = useBreakpoint({
+        deskstop: 1280,
+        mobile: 720,
+        mini: "(min-width: 320px)",
+    });
 
     const doScroll = () => {
         isScrolled.value = window.scrollY > 50;

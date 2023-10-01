@@ -4,23 +4,42 @@
         defineProps,
         onMounted,
         onUpdated,
+        reactive,
         ref,
         Ref,
         watch,
     } from "vue";
     import { useRoute } from "vue-router";
 
-    const SELECTOR = ".app-navigation__item";
-    const SELECTOR_ACTIVE = ".app-navigation__item--active";
-
     const route = useRoute();
 
     const props = defineProps({
-        navigationItems: {
-            type: Array,
+        className: {
+            type: String,
             required: true,
         },
     });
+    const getClass = (): { active: string; normal: string } => {
+        return {
+            active: `${props.className}--active`,
+            normal: props.className,
+        };
+    };
+    const getClassList = (item: string) => {
+        const classes = getClass();
+        return {
+            [classes.normal]: true,
+            [classes.active]: route.name === item,
+        };
+    };
+
+    const navigationItems = reactive([
+        "home",
+        "services",
+        "technologies",
+        "about-us",
+    ]);
+
     const emit = defineEmits<{
         (e: "tilt", event: Event): void;
         (e: "activate", event: Event): void;
@@ -56,8 +75,9 @@
 
     const reload = () => {
         activeItem.value = document.querySelector(
-            SELECTOR_ACTIVE
+            "." + getClass().active
         ) as HTMLElement;
+        console.log(activeItem.value);
     };
 
     onUpdated(() => {
@@ -67,15 +87,17 @@
     onMounted(async () => {
         setTimeout(() => {
             reload();
-            document.querySelectorAll(SELECTOR).forEach((item) => {
-                item.addEventListener("mouseenter", emitHover);
-                item.addEventListener("mouseleave", emitHover);
-                item.addEventListener("touchstart", emitTilt);
-                item.addEventListener("mousedown", emitTilt);
-                item.addEventListener("touchend", emitActivate);
-                item.addEventListener("mouseup", emitActivate);
-            });
-        }, 5);
+            document
+                .querySelectorAll("." + getClass().normal)
+                .forEach((item) => {
+                    item.addEventListener("mouseenter", emitHover);
+                    item.addEventListener("mouseleave", emitHover);
+                    item.addEventListener("touchstart", emitTilt);
+                    item.addEventListener("mousedown", emitTilt);
+                    item.addEventListener("touchend", emitActivate);
+                    item.addEventListener("mouseup", emitActivate);
+                });
+        }, 50);
     });
     // eslint-disable-next-line no-undef
     defineExpose({ reload });
@@ -83,16 +105,11 @@
 
 <template>
     <router-link
-        v-for="item in props.navigationItems"
+        v-for="item in navigationItems"
         :key="item"
-        class="app-navigation__item"
-        :class="{
-            'app-navigation__item--active': route.name === item,
-        }"
+        :class="getClassList(item)"
         :to="{ name: item }"
     >
         {{ $t(`views.${item}.nav-title`) }}
     </router-link>
 </template>
-
-<style scoped lang="scss"></style>

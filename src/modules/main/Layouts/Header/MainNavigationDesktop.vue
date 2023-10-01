@@ -1,8 +1,8 @@
 <template>
-    <nav class="app-navigation">
-        <nav-items
+    <nav class="main-navigation-desktop">
+        <MainNavigationItems
             ref="links"
-            :navigation-items="navigationItems"
+            :class-name="NAV_ITEM_CLASS_NAME"
             @tilt="tilt"
             @activate="activateTab"
             @change="onItemChange"
@@ -10,18 +10,18 @@
         />
         <div
             ref="indicator"
-            class="app-navigation__indicator"
+            class="main-navigation-desktop__indicator"
             :class="{
-                'app-navigatidon__indicator--hide': hidden,
-                'app-navigation__indicator--shrinked': props.shrinked,
+                'main-navigation-desktop__indicator--hide': hidden,
+                'main-navigation-desktop__indicator--shrinked': props.shrinked,
             }"
         />
 
         <router-link
-            class="app-navigation__item-action"
+            class="main-navigation-desktop__item-action"
             :to="{ name: 'contact' }"
         >
-            <div class="app-navigation__item-action-button">
+            <div class="main-navigation-desktop__item-action-button">
                 {{ $t(`views.contact.nav-title`) }}
             </div>
         </router-link>
@@ -29,11 +29,13 @@
 </template>
 
 <script lang="ts" setup>
-    import { defineProps, reactive, ref, Ref } from "vue";
+    import { defineProps, ref, Ref } from "vue";
     import { Back, Power4, TweenMax } from "gsap";
-    import NavItems from "@/modules/main/Layouts/Header/MainNavigationItems.vue";
+    import MainNavigationItems from "@/modules/main/Layouts/Header/MainNavigationItems.vue";
 
-    type NavItemsType = typeof NavItems extends new () => infer T ? T : never;
+    type NavItemsType = typeof MainNavigationItems extends new () => infer T
+        ? T
+        : never;
 
     const props = defineProps({
         shrinked: {
@@ -41,7 +43,7 @@
             default: true,
         },
     });
-    const NAV_ITEM_SELECTOR = "app-navigation__item";
+    const NAV_ITEM_CLASS_NAME = "main-navigation-desktop__item";
     const indicator = ref();
     const hidden = ref(true);
     const PADDING = 12;
@@ -51,12 +53,6 @@
         width: 0,
     };
     const links = ref() as Ref<NavItemsType>;
-    const navigationItems = reactive([
-        "home",
-        "services",
-        "technologies",
-        "about-us",
-    ]);
 
     function getVars(positionX: number, width: number) {
         return { x: positionX + PADDING, width: width - PADDING * 2 };
@@ -66,10 +62,12 @@
         const width = target.getBoundingClientRect().width;
 
         TweenMax.set(indicator.value, getVars(positionX, width));
+        hidden.value = false;
     };
 
     function moveIndicatorFromPrimitives(positionX: number, width: number) {
         TweenMax.to(indicator.value, 0.1, getVars(positionX, width));
+        hidden.value = false;
     }
 
     function moveIndicator(target: HTMLElement) {
@@ -80,14 +78,14 @@
 
     const tilt = (e: Event) => {
         const target = e.target as HTMLElement;
-        if (target.classList.contains(NAV_ITEM_SELECTOR)) {
+        if (target.classList.contains(NAV_ITEM_CLASS_NAME)) {
             TweenMax.to(e.target, 0.2, { scale: 0.7, ease: Power4.easeOut });
         }
     };
 
     const activateTab = (e: Event) => {
         const target = e.target as HTMLElement;
-        if (target.classList.contains(NAV_ITEM_SELECTOR)) {
+        if (target.classList.contains(NAV_ITEM_CLASS_NAME)) {
             moveIndicator(target);
             TweenMax.to(e.target, 0.3, {
                 scale: 1,
@@ -124,7 +122,7 @@
 </script>
 
 <style lang="scss">
-    .app-navigation {
+    .main-navigation-desktop {
         $app-nav: &;
         display: flex;
         align-items: stretch;
@@ -168,6 +166,7 @@
         &__indicator {
             $indicator: &;
             content: "";
+            pointer-events: none;
             position: absolute;
             bottom: 0;
             height: 2px;
