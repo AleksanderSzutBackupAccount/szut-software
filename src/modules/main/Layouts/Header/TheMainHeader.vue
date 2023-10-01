@@ -12,7 +12,6 @@
                     :shrinked="isCollapsed"
                 />
                 <main-navigation-mobile v-else />
-                {{ deskstop }}
             </div>
         </div>
     </header>

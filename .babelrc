@@ -1,0 +1,13 @@
+{
+    "presets": [
+        [
+            "@babel-preset-typescript-vue3",
+            {
+                "modules": false
+            }
+        ]
+    ],
+    "plugins": [
+        "@babel/babel-plugin-jsx"
+    ]
+}
