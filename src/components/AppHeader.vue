@@ -1,7 +1,7 @@
 <template>
     <header
         ref="content"
-        :class="{ 'app-header--scrolled': scrolled }"
+        :class="{ 'app-header--shrinked': isShrinked }"
         class="app-header"
     >
         <div class="app-header__wrapper">
@@ -16,7 +16,10 @@
                         src="@/assets/branding/logo.svg"
                     />
                 </router-link>
-                <app-navigation class="app-header__nav" />
+                <app-navigation
+                    class="app-header__nav"
+                    :shrinked="isShrinked"
+                />
             </div>
         </div>
     </header>
@@ -24,12 +27,13 @@
 
 <script lang="ts" setup>
     import AppNavigation from "@/components/AppNavigation.vue";
-    import { onMounted, onUnmounted, ref } from "vue";
+    import { computed, onMounted, onUnmounted, ref } from "vue";
 
-    const scrolled = ref<boolean>(false);
+    const isScrolled = ref<boolean>(false);
+    const isShrinked = computed(() => isScrolled.value);
 
     const doScroll = () => {
-        scrolled.value = window.scrollY > 100;
+        isScrolled.value = window.scrollY > 100;
     };
 
     onMounted(() => {
@@ -55,20 +59,16 @@
         color: $primary-color;
         position: fixed;
         border-bottom: 1px solid $background-color;
-
+        overflow: hidden;
         * {
             transition: all ease-in-out 0.25s;
-        }
-
-        img {
-            transition: filter ease-in-out 0.25s;
         }
 
         &:hover {
             height: 100px;
         }
 
-        &:not(&--scrolled) {
+        &:not(&--shrinked) {
             border-color: transparent;
         }
 
@@ -79,7 +79,7 @@
             align-items: stretch;
         }
 
-        &--scrolled {
+        &--shrinked {
             background-color: white;
 
             &:not(&:hover) {
@@ -91,7 +91,7 @@
 
                 #{$app-header}__logo {
                     transform: scale(0.8);
-                    transform-origin: center right;
+                    transform-origin: center center;
                 }
             }
         }
@@ -119,6 +119,7 @@
 
         &__logo {
             height: 60px;
+            transition: all ease 0.2s;
         }
 
         &__logo-wrapper {
