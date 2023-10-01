@@ -5,17 +5,7 @@
     >
         <div class="main-header__wrapper">
             <div class="main-header__inner">
-                <router-link
-                    :to="{ name: 'home' }"
-                    class="main-header__logo-wrapper"
-                >
-                    <img
-                        :alt="`${$t('main-name')} 'logo`"
-                        class="main-header__logo"
-                        src="@/assets/branding/logo.svg"
-                    />
-                </router-link>
-
+                <main-header-logo />
                 <main-navigation-desktop
                     class="main-header__nav"
                     :shrinked="isCollapsed"
@@ -28,6 +18,7 @@
 <script lang="ts" setup>
     import MainNavigationDesktop from "@/modules/main/Layouts/Header/MainNavigationDesktop.vue";
     import { computed, onMounted, onUnmounted, ref } from "vue";
+    import MainHeaderLogo from "@/modules/main/Layouts/Header/MainHeaderLogo.vue";
 
     const isScrolled = ref<boolean>(false);
     const isCollapsed = computed(() => isScrolled.value);
