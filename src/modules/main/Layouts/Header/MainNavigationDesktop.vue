@@ -13,7 +13,8 @@
             class="main-navigation-desktop__indicator"
             :class="{
                 'main-navigation-desktop__indicator--hide': hidden,
-                'main-navigation-desktop__indicator--shrinked': props.shrinked,
+                'main-navigation-desktop__indicator--collapsed':
+                    props.collapsed,
             }"
         />
 
@@ -38,7 +39,7 @@
         : never;
 
     const props = defineProps({
-        shrinked: {
+        collapsed: {
             type: Boolean,
             default: true,
         },
@@ -130,14 +131,6 @@
         overflow: hidden;
         position: relative;
 
-        &:hover {
-            #{$app-nav}__item {
-                &:not(&:hover):after {
-                    opacity: 0 !important;
-                }
-            }
-        }
-
         &::before {
             content: "";
             position: absolute;
@@ -179,6 +172,9 @@
             &--hide {
                 opacity: 0;
             }
+        }
+
+        &--collapsed {
         }
 
         &__item-action {

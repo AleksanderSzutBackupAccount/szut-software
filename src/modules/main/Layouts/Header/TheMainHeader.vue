@@ -9,7 +9,7 @@
                 <main-navigation-desktop
                     v-if="deskstop"
                     class="main-header__nav"
-                    :shrinked="isCollapsed"
+                    :collapsed="isCollapsed"
                 />
                 <main-navigation-mobile v-else />
             </div>
@@ -96,10 +96,10 @@
                     transform: scale(0.8);
                     transform-origin: center center;
                 }
+            }
 
-                .main-navigation__indicator {
-                    bottom: 10px;
-                }
+            .main-navigation__indicator {
+                bottom: 10px;
             }
         }
 
