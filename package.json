@@ -20,6 +20,7 @@
         "strict-particles-js": "^2.0.0",
         "styled-components": "^6.0.8",
         "vue": "^3.2.33",
+        "vue-composable": "^1.0.0-beta.24",
         "vue-i18n": "^9.2.2",
         "vue-router": "^4.0.14",
         "vue-styled-components": "^1.6.0"
