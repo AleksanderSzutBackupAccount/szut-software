@@ -77,7 +77,6 @@
         activeItem.value = document.querySelector(
             "." + getClass().active
         ) as HTMLElement;
-        console.log(activeItem.value);
     };
 
     onUpdated(() => {

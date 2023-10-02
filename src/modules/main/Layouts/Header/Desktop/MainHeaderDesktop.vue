@@ -13,11 +13,9 @@
             <div class="main-header__inner">
                 <main-header-logo />
                 <main-navigation-desktop
-                    v-if="desktop"
                     class="main-header__nav"
                     :shrink="navBar.shrink"
                 />
-                <main-navigation-mobile v-else />
             </div>
         </div>
     </header>
@@ -27,12 +25,8 @@
     import { onMounted, reactive, Ref, ref } from "vue";
 
     import MainHeaderLogo from "@/modules/main/Layouts/Header/MainHeaderLogo.vue";
-    import MainNavigationDesktop from "@/modules/main/Layouts/Header/MainNavigationDesktop.vue";
-    import MainNavigationMobile from "@/modules/main/Layouts/Header/MainNavigationMobile.vue";
-    import { BreakPointsComposable } from "@/composable/BreakPointsComposable";
+    import MainNavigationDesktop from "@/modules/main/Layouts/Header/Desktop/MainNavigationDesktop.vue";
     import { TweenMax } from "gsap";
-
-    const { desktop } = BreakPointsComposable();
 
     const navBar = reactive({
         open: true,
@@ -144,11 +138,15 @@
             border-color: transparent;
         }
 
+        #{$app_header}__wrapper {
+            align-items: stretch;
+        }
+
         &__wrapper {
             height: 100px;
             justify-content: center;
             display: flex;
-            align-items: stretch;
+            align-items: center;
             transition: opacity ease-out 0.2s, transform ease-out 0.4s;
         }
         &__inner {
@@ -170,13 +168,12 @@
             height: 60px;
         }
 
-        &--shrink {
+        #{$app-header}--shrink {
             &:not(:hover) {
                 transform: translateY(-20px);
 
-                transition: bottom ease-out 0.45s;
-
                 #menu-indicator {
+                    transition: bottom ease-out 0.45s;
                     bottom: 10px;
                 }
 
@@ -190,6 +187,26 @@
                     will-change: transform;
                     transform: translateY(10px);
                 }
+            }
+        }
+
+        &--shrink {
+            transform: translateY(-20px);
+
+            #menu-indicator {
+                transition: bottom ease-out 0.45s;
+                bottom: 10px;
+            }
+
+            #{$app-header}__logo-wrapper {
+                will-change: transform;
+                transform-origin: center center;
+                transform: scale(0.8);
+            }
+
+            #{$app-header}__wrapper {
+                will-change: transform;
+                transform: translateY(10px);
             }
         }
     }
