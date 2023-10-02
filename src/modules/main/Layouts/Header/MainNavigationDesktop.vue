@@ -9,12 +9,12 @@
             @hover="onHover"
         />
         <div
+            id="menu-indicator"
             ref="indicator"
             class="main-navigation-desktop__indicator"
             :class="{
                 'main-navigation-desktop__indicator--hide': hidden,
-                'main-navigation-desktop__indicator--collapsed':
-                    props.collapsed,
+                'main-navigation-desktop__indicator--collapsed': props.shrink,
             }"
         />
 
@@ -39,7 +39,7 @@
         : never;
 
     const props = defineProps({
-        collapsed: {
+        shrink: {
             type: Boolean,
             default: true,
         },
@@ -128,7 +128,6 @@
         display: flex;
         align-items: stretch;
         font-weight: 600 !important;
-        overflow: hidden;
         position: relative;
 
         &::before {
@@ -151,9 +150,13 @@
 
             text-decoration: none;
             padding: 0 24px;
-            transition: all ease-in-out 0.2s;
             position: relative;
             cursor: pointer;
+            transition: opacity ease-out 0.2s, transform ease-out 0.4s;
+
+            &:hover {
+                color: $primary-color;
+            }
         }
 
         &__indicator {
@@ -163,18 +166,15 @@
             position: absolute;
             bottom: 0;
             height: 2px;
-            transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.1s,
+            transition: transform cubic-bezier(0.4, 0, 0.2, 1) 0.25s,
                 opacity cubic-bezier(0.4, 0, 0.2, 1) 0.5s;
             display: block;
-            background-color: red;
+            background-color: $primary-color;
             opacity: 1;
 
             &--hide {
                 opacity: 0;
             }
-        }
-
-        &--collapsed {
         }
 
         &__item-action {
