@@ -6,29 +6,40 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 npm i          # install dependencies
-npm run dev    # start dev server (Vite)
+npm run dev    # start dev server (Nuxt)
 npm run build  # production build
+npm run generate  # static site generation
+npm run preview   # preview production build
 ```
 
 No test runner is configured.
 
 ## Architecture
 
-This is a React + Vite single-page app, bootstrapped from a Figma Make export. The entry point is `src/main.tsx` → `src/app/App.tsx` → `src/app/routes.tsx`.
+This is a **Nuxt 4 + Vue 3** single-page app. Entry: `app/app.vue` → `app/layouts/default.vue` → `app/pages/index.vue`.
 
-**Routing:** React Router v7 with a single layout route (`Layout`) wrapping a `Home` page. Add new pages in `src/app/pages/` and register them in `routes.tsx`.
-
-**Layout shell:** `Layout.tsx` renders `Navbar` → `SocialBar` → `<Outlet />` → `Footer`. The root background is `#0A0A0A` (near-black), text is white, and the brand accent color is `#fc4445` (red).
+**Routing:** Nuxt file-based routing. Pages go in `app/pages/`, layouts in `app/layouts/`. The default layout (`default.vue`) renders `Navbar` → `SocialBar` → `<slot />` → `Footer`.
 
 **Component layers:**
-- `src/app/components/` — page-level sections (Hero, Services, Portfolio, Navbar, Footer, SocialBar)
-- `src/app/components/ui/` — shadcn/ui primitives (Radix UI + Tailwind); don't modify these directly
-- `src/app/components/figma/` — Figma Make–specific wrappers (e.g. `ImageWithFallback`)
+- `app/components/` — page-level sections: `Hero`, `Services`, `Portfolio`, `Navbar`, `Footer`, `SocialBar`, `ImageWithFallback`
 
-**Styling:** Tailwind CSS v4 via `@tailwindcss/vite`. CSS custom properties (design tokens) are defined in `src/styles/theme.css` and exposed to Tailwind via `@theme inline`. Import order: `fonts.css` → `tailwind.css` → `theme.css` (via `src/styles/index.css`).
+**Styling:** SCSS with BEM methodology. Design tokens and mixins live in `app/assets/styles/`:
+- `tokens/` — `_colors.scss`, `_typography.scss`, `_spacing.scss`, `_breakpoints.scss`
+- `mixins/` — `_layout.scss` (container), `_responsive.scss` (breakpoint helpers: `sm`, `md`, `lg`, `xl`)
+- `_index.scss` — forwards all tokens and mixins; globally injected via `nuxt.config.ts` `additionalData`
+- `index.css` — global base styles entry point (imported via `css` in `nuxt.config.ts`)
 
-**Aliases:** `@` resolves to `src/`. Figma asset imports use the `figma:asset/<filename>` scheme, resolved to `src/assets/` by a custom Vite plugin.
+Tokens are available as SCSS variables everywhere (e.g. `$color-accent`, `$space-4`, `$font-size-lg`). Use `@include lg { }` for breakpoint blocks.
 
-**Utility:** `cn()` is exported from `src/app/components/ui/utils.ts` — use it for conditional class merging throughout the codebase.
+**Design tokens:**
+- Background: `$color-bg` (`#0a0a0a`), surface: `$color-surface` (`#1a1a1a`)
+- Accent: `$color-accent` (`#fc4445` red)
+- Text: `$color-text` (`#ffffff`), muted: `$color-muted` / `$color-muted-light` / `$color-muted-dark`
 
-**Key deps:** `motion` (Framer Motion v12), `lucide-react` for icons, MUI (`@mui/material`) alongside shadcn/ui, `react-hook-form`, `recharts`, `sonner` for toasts.
+**Animations:** `motion-v` (Vue port of Motion/Framer Motion). Use `<motion.div>` with `:initial`, `:animate`, `:transition` props.
+
+**Icons:** `lucide-vue-next` — import named icons and use as components.
+
+**Static assets:** `public/` is served at `/`. Favicons are in `public/img/icons/`.
+
+**Deployment:** Vercel (nitro preset). Config in `nuxt.config.ts`.
