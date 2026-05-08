@@ -1,11 +1,3 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": ".output/public",
-  "framework": "nuxtjs",
-  "functions": {
-    "server/index.mjs": {
-      "runtime": "nodejs22.x"
-    }
-  },
   "regions": ["fra1"]
 }
