@@ -19,6 +19,10 @@ node_modules/.cache/
 .DS_Store
 Thumbs.db
 
+# IDE
+.idea/
+.vscode/
+
 # Logs
 *.log
 npm-debug.log*
