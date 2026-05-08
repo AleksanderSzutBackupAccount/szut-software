@@ -1,35 +1,11 @@
-# szut-software
 
-## Project setup
+  # Interactive Landing Page Design
 
-```
-yarn install
-```
+  This is a code bundle for Interactive Landing Page Design. The original project is available at https://www.figma.com/design/tDk7vwiegtVq9KoMRFCHfo/Interactive-Landing-Page-Design.
 
-### Compiles and hot-reloads for development
+  ## Running the code
 
-```
-yarn serve
-```
+  Run `npm i` to install the dependencies.
 
-### Compiles and minifies for production
-
-```
-yarn build
-```
-
-### Run your unit tests
-
-```
-yarn test:unit
-```
-
-### Lints and fixes files
-
-```
-yarn lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+  Run `npm run dev` to start the development server.
+  
