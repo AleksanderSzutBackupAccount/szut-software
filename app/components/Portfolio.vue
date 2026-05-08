@@ -42,7 +42,7 @@ const yPhoneRight = useTransform(scrollYProgress, [0, 1], [-50, 250])
         </motion.a>
       </div>
 
-      <!-- Project: Caredo.pl -->
+      <!-- Project: DSS by Caredo -->
       <div class="project project--laptop-left">
 
         <div class="project__visual">
@@ -55,8 +55,8 @@ const yPhoneRight = useTransform(scrollYProgress, [0, 1], [-50, 250])
               </div>
               <div class="project__laptop-window">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1634084462412-b54873c0a56d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3ZWIlMjBhcHAlMjBkYXNoYm9hcmQlMjBVSXxlbnwxfHx8fDE3NzgxNjA2Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="Caredo.pl Dashboard"
+                  src="/img/screenshots/dss-desktop.jpg"
+                  alt="DSS by Caredo — strona główna"
                   class="project__laptop-img"
                 />
                 <div class="project__laptop-overlay">
@@ -88,7 +88,7 @@ const yPhoneRight = useTransform(scrollYProgress, [0, 1], [-50, 250])
           class="project__info"
         >
           <div class="project__tag project__tag--red">Aplikacja Webowa</div>
-          <h3 class="project__title">Caredo.pl</h3>
+          <h3 class="project__title">dssbycaredo.com</h3>
           <p class="project__desc">
             Zaawansowana platforma CRM dedykowana dla branży usługowej. System pozwala na kompleksowe zarządzanie klientami, rezerwacjami oraz procesami wewnętrznymi, minimalizując czas obsługi i maksymalizując zyski.
           </p>
@@ -107,7 +107,7 @@ const yPhoneRight = useTransform(scrollYProgress, [0, 1], [-50, 250])
             </li>
           </ul>
           <a
-            href="https://caredo.pl"
+            href="https://dssbycaredo.com"
             target="_blank"
             rel="noopener noreferrer"
             class="project__link project__link--red"
@@ -119,7 +119,7 @@ const yPhoneRight = useTransform(scrollYProgress, [0, 1], [-50, 250])
       </div>
 
       <!-- Project: 2motion.pl -->
-      <div class="project project--phones-right">
+      <div class="project project--laptop-right">
 
         <motion.div
           :initial="{ opacity: 0, x: -50 }"
@@ -128,15 +128,15 @@ const yPhoneRight = useTransform(scrollYProgress, [0, 1], [-50, 250])
           :transition="{ duration: 0.8 }"
           class="project__info"
         >
-          <div class="project__tag project__tag--orange">Strona Wizerunkowa / eCommerce</div>
+          <div class="project__tag project__tag--orange">Strona Wizerunkowa</div>
           <h3 class="project__title">2motion.pl</h3>
           <p class="project__desc">
-            Nowoczesna strona WWW z elementami e-commerce, stworzona dla dynamicznie rozwijającej się marki. Oparta na najnowszych technologiach, gwarantuje błyskawiczne ładowanie i doskonałe wrażenia na urządzeniach mobilnych.
+            Nowoczesna strona WWW stworzona dla dynamicznie rozwijającej się marki z branży automatyki przemysłowej. Oparta na najnowszych technologiach, gwarantuje błyskawiczne ładowanie i doskonałe wrażenia na każdym urządzeniu.
           </p>
           <ul class="project__features">
             <li class="project__feature">
               <span class="project__feature-dot project__feature-dot--orange" />
-              Niestandardowe animacje 3D (WebGL / Spline)
+              Responsywny design zoptymalizowany na mobile i desktop
             </li>
             <li class="project__feature">
               <span class="project__feature-dot project__feature-dot--orange" />
@@ -144,7 +144,7 @@ const yPhoneRight = useTransform(scrollYProgress, [0, 1], [-50, 250])
             </li>
             <li class="project__feature">
               <span class="project__feature-dot project__feature-dot--orange" />
-              Płynne przejścia między podstronami (PWA)
+              Płynne animacje i nowoczesna identyfikacja wizualna
             </li>
           </ul>
           <a
@@ -158,25 +158,48 @@ const yPhoneRight = useTransform(scrollYProgress, [0, 1], [-50, 250])
           </a>
         </motion.div>
 
-        <div class="project__phones">
-          <motion.div :style="{ y: y2 }" class="project__phone project__phone--left">
+        <div class="project__visual">
+          <motion.div :style="{ y: y1 }" class="project__laptop">
+            <div class="project__laptop-screen">
+              <div class="project__laptop-bar">
+                <span class="project__laptop-dot project__laptop-dot--red" />
+                <span class="project__laptop-dot project__laptop-dot--yellow" />
+                <span class="project__laptop-dot project__laptop-dot--green" />
+              </div>
+              <div class="project__laptop-window">
+                <ImageWithFallback
+                  src="/img/screenshots/2motion-desktop.jpg"
+                  alt="2motion.pl — widok desktop"
+                  class="project__laptop-img"
+                />
+                <div class="project__laptop-overlay">
+                  <span class="project__laptop-label">Widok desktop</span>
+                </div>
+              </div>
+            </div>
+            <div class="project__laptop-base">
+              <div class="project__laptop-chin" />
+            </div>
+          </motion.div>
+
+          <motion.div :style="{ y: y2 }" class="project__phone-float project__phone-float--left">
             <div class="project__phone-notch" />
             <div class="project__phone-screen">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1760008486593-a85315610136?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3ZWJzaXRlJTIwbGFuZGluZyUyMHBhZ2UlMjBkZXNpZ258ZW58MXx8fHwxNzc4MTU3MDk4fDA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="2motion Mobile view"
+                src="/img/screenshots/2motion-mobile.jpg"
+                alt="2motion.pl — widok mobile"
                 class="project__phone-img"
               />
               <div class="project__phone-overlay" />
             </div>
           </motion.div>
 
-          <motion.div :style="{ y: yPhoneRight }" class="project__phone project__phone--right">
+          <motion.div :style="{ y: yPhoneRight }" class="project__phone-float project__phone-float--right">
             <div class="project__phone-notch project__phone-notch--wide" />
             <div class="project__phone-screen">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1760008486593-a85315610136?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3ZWJzaXRlJTIwbGFuZGluZyUyMHBhZ2UlMjBkZXNpZ258ZW58MXx8fHwxNzc4MTU3MDk4fDA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="2motion Mobile view alternate"
+                src="/img/screenshots/2motion-mobile.jpg"
+                alt="2motion.pl — widok mobile przewijanie"
                 class="project__phone-img project__phone-img--scroll"
               />
               <div class="project__phone-home-bar" />
@@ -315,14 +338,14 @@ const yPhoneRight = useTransform(scrollYProgress, [0, 1], [-50, 250])
     }
   }
 
-  &--phones-right {
+  &--laptop-right {
     .project__info {
       @include lg {
         width: 50%;
       }
     }
 
-    .project__phones {
+    .project__visual {
       @include lg {
         width: 50%;
       }
@@ -490,6 +513,94 @@ const yPhoneRight = useTransform(scrollYProgress, [0, 1], [-50, 250])
     color: #4ade80;
     font-size: $font-size-xs;
     font-family: monospace;
+  }
+
+  &__phone-float {
+    position: absolute;
+    background-color: #111827;
+    border-radius: 32px;
+    padding: 8px;
+    border: 4px solid #1f2937;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+
+    &--left {
+      width: 100px;
+      height: 210px;
+      bottom: -24px;
+      right: 40px;
+      transform: rotate(-4deg);
+      z-index: 20;
+
+      @include sm {
+        width: 120px;
+        height: 252px;
+        right: 60px;
+      }
+    }
+
+    &--right {
+      width: 110px;
+      height: 232px;
+      bottom: -40px;
+      right: -16px;
+      transform: rotate(3deg);
+      z-index: 30;
+
+      @include sm {
+        width: 130px;
+        height: 273px;
+        right: -24px;
+      }
+    }
+
+    .project__phone-screen {
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid $color-border-subtle;
+    }
+
+    .project__phone-notch {
+      position: absolute;
+      top: 0;
+      inset-x: 0;
+      height: 16px;
+      background-color: #000;
+      border-radius: 32px 32px 0 0;
+      display: flex;
+      justify-content: center;
+      z-index: 20;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 10px;
+        background-color: #000;
+        border-radius: 0 0 8px 8px;
+        margin-top: -1px;
+      }
+
+      &--wide::after {
+        width: 50px;
+        height: 12px;
+      }
+    }
+
+    .project__phone-home-bar {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 33%;
+      height: 3px;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 9999px;
+    }
   }
 
   &__phones {
