@@ -12,13 +12,13 @@ const year = new Date().getFullYear()
         <p class="footer__sub">Napisz do nas, a my przygotujemy bezpłatną wycenę.</p>
       </div>
       <div class="footer__links">
-        <a href="mailto:hello@szut.software" class="footer__link">
+        <a href="mailto:contact@szut.software" class="footer__link">
           <Mail :size="20" class="footer__link-icon" />
-          hello@szut.software
+          contact@szut.software
         </a>
-        <a href="tel:+48000000000" class="footer__link">
+        <a href="tel:+48793448398" class="footer__link">
           <Phone :size="20" class="footer__link-icon" />
-          +48 000 000 000
+          +48 793 448 398
         </a>
         <div class="footer__link footer__link--static">
           <MapPin :size="20" class="footer__link-icon" />

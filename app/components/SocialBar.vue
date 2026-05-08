@@ -3,9 +3,9 @@ import { motion } from 'motion-v'
 import { Instagram, Facebook, Linkedin } from 'lucide-vue-next'
 
 const socials = [
-  { icon: Instagram, link: '#instagram', label: 'Instagram' },
-  { icon: Facebook, link: '#facebook', label: 'Facebook' },
-  { icon: Linkedin, link: '#linkedin', label: 'LinkedIn' },
+  { icon: Instagram, link: 'https://www.instagram.com/szut_software/', label: 'Instagram' },
+  { icon: Facebook, link: 'https://www.facebook.com/szutsoftware/', label: 'Facebook' },
+  { icon: Linkedin, link: 'https://www.linkedin.com/company/szut-software', label: 'LinkedIn' },
 ]
 </script>
 
@@ -21,6 +21,8 @@ const socials = [
       :key="social.label"
       :href="social.link"
       :aria-label="social.label"
+      target="_blank"
+      rel="noopener noreferrer"
       class="social-bar__link"
     >
       <component :is="social.icon" :size="22" :stroke-width="1.5" />
